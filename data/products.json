@@ -1,0 +1,139 @@
+{
+  "PET": [
+    {
+      "name": "Phone Microscope Stand",
+      "image": "assets/products/pet-microscope.jpg",
+      "filamentUsed": "0.20 kg",
+      "price": "RM 15",
+      "carbonSaved": "0.30 kg CO₂",
+      "useCase": "Turns any phone into a microscope for rural schools",
+      "beneficiary": "500+ rural students per kit"
+    },
+    {
+      "name": "Water Filtration Kit",
+      "image": "assets/products/pet-filtration.jpg",
+      "filamentUsed": "0.35 kg",
+      "price": "RM 25",
+      "carbonSaved": "0.52 kg CO₂",
+      "useCase": "Teaches filtration and water science",
+      "beneficiary": "300+ students per kit"
+    },
+    {
+      "name": "Anatomy Model Set",
+      "image": "assets/products/pet-anatomy.jpg",
+      "filamentUsed": "0.50 kg",
+      "price": "RM 35",
+      "carbonSaved": "0.75 kg CO₂",
+      "useCase": "Heart, lungs, skeleton for biology class",
+      "beneficiary": "400+ students per set"
+    },
+    {
+      "name": "Test Tube Rack",
+      "image": "assets/products/pet-testtube.jpg",
+      "filamentUsed": "0.15 kg",
+      "price": "RM 10",
+      "carbonSaved": "0.22 kg CO₂",
+      "useCase": "Chemistry lab basics for secondary schools",
+      "beneficiary": "200+ students per rack"
+    }
+  ],
+  "PE": [
+    {
+      "name": "Simple Machines Kit",
+      "image": "assets/products/pe-machines.jpg",
+      "filamentUsed": "0.30 kg",
+      "price": "RM 20",
+      "carbonSaved": "0.42 kg CO₂",
+      "useCase": "Levers, pulleys, gears for physics",
+      "beneficiary": "350+ students per kit"
+    },
+    {
+      "name": "Soil Test Tools",
+      "image": "assets/products/pe-soil.jpg",
+      "filamentUsed": "0.25 kg",
+      "price": "RM 18",
+      "carbonSaved": "0.35 kg CO₂",
+      "useCase": "Agriculture science for rural schools",
+      "beneficiary": "250+ students per set"
+    },
+    {
+      "name": "Geometry Blocks",
+      "image": "assets/products/pe-geometry.jpg",
+      "filamentUsed": "0.20 kg",
+      "price": "RM 12",
+      "carbonSaved": "0.28 kg CO₂",
+      "useCase": "Hands-on math learning for primary schools",
+      "beneficiary": "400+ students per set"
+    }
+  ],
+  "PC": [
+    {
+      "name": "Beaker Holder Set",
+      "image": "assets/products/pc-beaker.jpg",
+      "filamentUsed": "0.15 kg",
+      "price": "RM 15",
+      "carbonSaved": "0.33 kg CO₂",
+      "useCase": "Safe chemistry lab equipment",
+      "beneficiary": "200+ students per set"
+    },
+    {
+      "name": "Microscope Slide Holder",
+      "image": "assets/products/pc-slide.jpg",
+      "filamentUsed": "0.10 kg",
+      "price": "RM 12",
+      "carbonSaved": "0.22 kg CO₂",
+      "useCase": "Biology lab essential",
+      "beneficiary": "300+ students per holder"
+    },
+    {
+      "name": "Safety Goggles Frame",
+      "image": "assets/products/pc-goggles.jpg",
+      "filamentUsed": "0.18 kg",
+      "price": "RM 18",
+      "carbonSaved": "0.40 kg CO₂",
+      "useCase": "Protects students in science labs",
+      "beneficiary": "Every student"
+    }
+  ],
+  "PP": [
+    {
+      "name": "Math Fraction Tiles",
+      "image": "assets/products/pp-fractions.jpg",
+      "filamentUsed": "0.10 kg",
+      "price": "RM 8",
+      "carbonSaved": "0.13 kg CO₂",
+      "useCase": "Visual math learning for primary schools",
+      "beneficiary": "500+ students per set"
+    },
+    {
+      "name": "Number Line Kit",
+      "image": "assets/products/pp-numberline.jpg",
+      "filamentUsed": "0.12 kg",
+      "price": "RM 10",
+      "carbonSaved": "0.16 kg CO₂",
+      "useCase": "Arithmetic learning aid",
+      "beneficiary": "400+ students per kit"
+    },
+    {
+      "name": "Geometric Shapes Set",
+      "image": "assets/products/pp-shapes.jpg",
+      "filamentUsed": "0.15 kg",
+      "price": "RM 12",
+      "carbonSaved": "0.20 kg CO₂",
+      "useCase": "3D geometry teaching for secondary schools",
+      "beneficiary": "350+ students per set"
+    }
+  ],
+  "PS": [
+    {
+      "name": "Solar System Model",
+      "image": "assets/products/ps-solarsystem.jpg",
+      "filamentUsed": "0.25 kg",
+      "price": "RM 15",
+      "carbonSaved": "0.20 kg CO₂",
+      "useCase": "Astronomy teaching aid for rural schools",
+      "beneficiary": "400+ students per model"
+    }
+  ],
+  "Others": []
+}

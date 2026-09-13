@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plasycle – Live Demo</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loadingScreen">
+    <div class="loading-logo"><img src="css/Logo.jfif" alt="Plasycle" class="logo-img" onerror="this.style.display='none'" /></div>
+    <p class="loading-text">Loading Plasycle AI model...</p>
+    <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scrollProgress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#16a34a,#22c55e);width:0%;z-index:1000;transition:width 0.1s ease;"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="css/Logo.jfif" alt="Plasycle" class="logo-img" onerror="this.style.display='none'" />
+        <span class="logo-text">Plasycle</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="demo.html" class="active">Demo</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="demo-header">
+    <div class="container">
+      <h1>AI Plastic Scanner</h1>
+      <p>Upload a photo of plastic waste. Watch it become filament, then a STEM learning aid for rural schools.</p>
+      <div class="lang-toggle">
+        <span class="lang-label">Voice:</span>
+        <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+        <button class="lang-btn" data-lang="ms">🇲🇾 Bahasa Malaysia</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="pipeline-section">
+    <div class="container">
+      <div class="pipeline" id="pipeline">
+        <div class="pipeline-step" data-step="1">
+          <div class="pipeline-icon">🍼</div>
+          <div class="pipeline-label">Plastic Waste</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="2">
+          <div class="pipeline-icon">⚙️</div>
+          <div class="pipeline-label">Shredder</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="3">
+          <div class="pipeline-icon">🔥</div>
+          <div class="pipeline-label">Extruder</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="4">
+          <div class="pipeline-icon">🧵</div>
+          <div class="pipeline-label">Filament</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="5">
+          <div class="pipeline-icon">🖨️</div>
+          <div class="pipeline-label">3D Printer</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step" data-step="6">
+          <div class="pipeline-icon">🎓</div>
+          <div class="pipeline-label">STEM Aid</div>
+        </div>
+      </div>
+      <div class="pipeline-progress">
+        <div class="pipeline-progress-fill" id="pipelineProgressFill"></div>
+      </div>
+      <p class="pipeline-caption">Watch how plastic becomes filament, then a STEM learning aid for rural schools.</p>
+    </div>
+  </section>
+
+  <main class="demo-main">
+    <div class="container">
+      <div class="demo-grid">
+        <div class="demo-panel upload-panel">
+          <h2>1. Upload Photo</h2>
+          <div class="upload-area" id="uploadArea">
+            <input type="file" id="imageUpload" accept="image/*" hidden />
+            <div class="upload-placeholder" id="uploadPlaceholder">
+              <div class="upload-icon">📷</div>
+              <p><strong>Click to upload</strong></p>
+              <p class="upload-hint">or drag and drop an image</p>
+              <p class="upload-formats">JPG, PNG · Max 10MB</p>
+            </div>
+            <img id="preview" class="preview-image" style="display:none" alt="Preview" />
+          </div>
+          <button id="classifyBtn" class="btn btn-primary btn-full" disabled>
+            🔍 Scan Plastic
+          </button>
+          <button id="resetBtn" class="btn btn-secondary btn-full" style="display:none">
+            ↻ Try Another Image
+          </button>
+          <div class="loading-indicator" id="loadingIndicator" style="display:none">
+            <div class="spinner"></div>
+            <p>Analyzing plastic...</p>
+          </div>
+        </div>
+
+        <div class="demo-panel results-panel">
+          <h2>2. Results</h2>
+          <div class="results-empty" id="resultsEmpty">
+            <div class="empty-icon">🔬</div>
+            <p>Upload an image and click <strong>Scan Plastic</strong> to see results.</p>
+          </div>
+          <div class="results-content" id="resultsContent" style="display:none"></div>
+        </div>
+      </div>
+
+      <div class="printer-panel" id="printerPanel" style="display:none">
+        <h2>🖨️  How Your Plastic Becomes a useful items</h2>
+        <p class="printer-caption">IT CAN BE ANYTHING</p>
+        <div class="printer-stage">
+          <div class="printer-frame">
+            <div class="printer-rail"></div>
+            <div class="printer-nozzle"></div>
+            <div class="printer-bed"></div>
+            <div class="printer-product" id="printerProduct"></div>
+          </div>
+        </div>
+        <p class="printer-progress-text" id="printerProgressText">0%</p>
+        <p class="printer-status" id="printerStatus">Printing...</p>
+      </div>
+
+      <div class="split-view-panel" id="splitViewPanel" style="display:none">
+        <h2>♻️ Before / After</h2>
+        <p class="split-caption">Drag the slider to see what your plastic becomes.</p>
+        <div class="split-container" id="splitContainer">
+          <img id="splitBeforeImg" class="split-img" alt="Before" />
+          <div class="split-after-wrapper" id="splitAfterWrapper">
+            <img id="splitAfterImg" class="split-img" alt="After" />
+          </div>
+          <div class="split-handle" id="splitHandle">
+            <div class="split-handle-circle">⇄</div>
+          </div>
+        </div>
+        <div class="split-labels">
+          <span class="split-label-before">After</span>
+          <span class="split-label-after">Before</span>
+        </div>
+      </div>
+
+      <div class="carousel-panel" id="carouselPanel" style="display:none">
+        <h2>🎓 STEM Learning Aids We Can Make</h2>
+        <p class="carousel-caption">Real learning aids 3D-printed from this plastic type, for rural schools that can't afford them.</p>
+        <div class="carousel-wrapper">
+          <button class="carousel-nav carousel-prev" id="carouselPrev">‹</button>
+          <div class="carousel-track" id="carouselTrack"></div>
+          <button class="carousel-nav carousel-next" id="carouselNext">›</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+
+      <div class="demo-info">
+        <p>
+          <strong>How it works:</strong> Plasycle uses TensorFlow.js and a custom-trained 
+          plastic classification model to identify plastic types directly in your browser. 
+          Results are read aloud in English or Bahasa Malaysia for accessibility.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Plasycle</strong> — Plastic Waste Into STEM Education</p>
+      <p class="footer-team">
+        Muhammad Alif Fahmi · Hafiz bin Othman · Ijjazurahim · Nyjil Mini Ravi · Aung Kaung Myat
+      </p>
+      <p class="footer-small">
+        Group [3] · [Albukhary International University] · Social Business Project 2026
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/model.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/animations.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "PET": {
+    "category": "PET (Type 1)",
+    "fullName": "Polyethylene Terephthalate",
+    "examples": "Water bottles, soda bottles, food containers",
+    "filamentReady": "Yes",
+    "filamentQuality": "High — strong and clear",
+    "pricePerKg": 2.00,
+    "filamentYield": "0.8 kg filament per kg plastic",
+    "carbonPerKg": 1.5,
+    "printedProducts": "Phone stands, plant pots, storage boxes, rulers",
+    "location": "Plasycle Collection Point, PPR Sri Damansara",
+    "earningsExample": "10 bottles (0.5kg) = RM 1.00 + 0.4kg filament = 2 phone stands (worth RM 10)"
+  },
+  "PE": {
+    "category": "PE (Type 2 & 4)",
+    "fullName": "Polyethylene (HDPE + LDPE)",
+    "examples": "Milk jugs, detergent bottles, plastic bags, shampoo bottles",
+    "filamentReady": "Yes",
+    "filamentQuality": "High — flexible and durable",
+    "pricePerKg": 1.80,
+    "filamentYield": "0.85 kg filament per kg plastic",
+    "carbonPerKg": 1.4,
+    "printedProducts": "Tool handles, toys, kitchen utensils, garden tools",
+    "location": "Plasycle Collection Point, PPR Sri Damansara",
+    "earningsExample": "3 bottles (0.6kg) = RM 1.08 + 0.5kg filament = 3 tool handles (worth RM 15)"
+  },
+  "PC": {
+    "category": "PC (Type 7)",
+    "fullName": "Polycarbonate",
+    "examples": "Baby bottles, water gallons, sippy cups, electronics casing",
+    "filamentReady": "Yes",
+    "filamentQuality": "Very High — impact resistant",
+    "pricePerKg": 3.00,
+    "filamentYield": "0.9 kg filament per kg plastic",
+    "carbonPerKg": 2.2,
+    "printedProducts": "Protective cases, gears, mechanical parts, safety equipment",
+    "location": "Plasycle Collection Point, PPR Sri Damansara",
+    "earningsExample": "1 water gallon (0.8kg) = RM 2.40 + 0.72kg filament = 4 protective cases (worth RM 20)"
+  },
+  "PP": {
+    "category": "PP (Type 5)",
+    "fullName": "Polypropylene",
+    "examples": "Yogurt cups, straws, bottle caps, takeaway containers",
+    "filamentReady": "Yes",
+    "filamentQuality": "Medium-High — heat resistant",
+    "pricePerKg": 1.50,
+    "filamentYield": "0.75 kg filament per kg plastic",
+    "carbonPerKg": 1.3,
+    "printedProducts": "Bottle caps, hinges, medical tools, kitchen items",
+    "location": "Plasycle Collection Point, PPR Sri Damansara",
+    "earningsExample": "20 bottle caps (0.2kg) = RM 0.30 + 0.15kg filament = 1 phone case (worth RM 8)"
+  },
+  "PS": {
+    "category": "PS (Type 6)",
+    "fullName": "Polystyrene",
+    "examples": "Styrofoam, disposable cups, foam trays, packaging",
+    "filamentReady": "Limited",
+    "filamentQuality": "Low — brittle",
+    "pricePerKg": 0.50,
+    "filamentYield": "0.5 kg filament per kg plastic",
+    "carbonPerKg": 0.8,
+    "printedProducts": "Decorative items only (limited structural use)",
+    "location": "Plasycle Collection Point, PPR Sri Damansara",
+    "earningsExample": "5 foam trays (0.5kg) = RM 0.25 + 0.25kg filament"
+  },
+  "Others": {
+    "category": "Other / Mixed Plastic",
+    "fullName": "Mixed or Unidentified Plastic",
+    "examples": "Multi-layer packaging, unknown plastic items",
+    "filamentReady": "No",
+    "filamentQuality": "Unknown — not safe for printing",
+    "pricePerKg": 0,
+    "filamentYield": "Not suitable",
+    "carbonPerKg": 0,
+    "printedProducts": "Not recommended",
+    "location": "Dispose responsibly",
+    "earningsExample": "Not suitable for Plasycle filament production"
+  }
+}
